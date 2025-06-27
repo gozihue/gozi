@@ -1145,3 +1145,17 @@ button {
   margin-bottom: 20px;
   margin-top: 30px;
 }
+
+.hero-banner {
+  width: 100%;
+  height: auto; /* Để chiều cao tự điều chỉnh theo tỉ lệ ảnh */
+  position: relative;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+

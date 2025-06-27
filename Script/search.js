@@ -27,26 +27,26 @@ if (distanceRange && distanceValue) {
 
 // Dữ liệu xe (có ảnh)
 const vehicles = [
-    { name: "Yamaha Exciter 155", type: "motorbike", brand: "yamaha", price: 150000, location: "Huế", rating: 4.5, distance: 5, amenities: ["helmet", "gps"], image: "img/xe/Yamaha Exciter 155.jpg" },
-    { name: "Honda SH Mode", type: "motorbike", brand: "honda", price: 180000, location: "Đà Nẵng", rating: 4.0, distance: 3, amenities: ["helmet"], image: "img/xe/Honda SH Mode.jpg" },
-    { name: "Honda Wave Alpha", type: "motorbike", brand: "honda", price: 90000, location: "Đà Nẵng", rating: 3.5, distance: 10, amenities: ["helmet"], image: "img/xe/Honda Wave Alpha.jpg" },
-    { name: "Suzuki GSX R150", type: "motorbike", brand: "suzuki", price: 200000, location: "Huế", rating: 4.7, distance: 4, amenities: ["helmet"], image: "img/xe/Suzuki GSX R150.jpg" },
-    { name: "Peugeot Django", type: "motorbike", brand: "peugeot", price: 170000, location: "Hội An", rating: 4.2, distance: 2, amenities: ["helmet", "gps"], image: "img/xe/Peugeot Django.jpg" },
-    { name: "Honda Lead", type: "motorbike", brand: "honda", price: 140000, location: "Huế", rating: 4.0, distance: 3, amenities: ["helmet"], image: "img/xe/Honda Lead.jpg" },
-    { name: "Yamaha Grande", type: "motorbike", brand: "yamaha", price: 160000, location: "Huế", rating: 4.4, distance: 5, amenities: ["helmet", "delivery"], image: "img/xe/Yamaha Grande.jpg" },
-    { name: "Honda Vision", type: "motorbike", brand: "honda", price: 130000, location: "Đà Nẵng", rating: 4.1, distance: 2, amenities: ["helmet"], image: "img/xe/Honda Vision.jpg" },
-    { name: "Yamaha Sirius", type: "motorbike", brand: "yamaha", price: 100000, location: "Huế", rating: 3.9, distance: 7, amenities: ["helmet"], image: "img/xe/Yamaha Sirius.jpg" },
-    { name: "Piaggio Liberty", type: "motorbike", brand: "piaggio", price: 175000, location: "Huế", rating: 4.3, distance: 4, amenities: ["helmet", "gps"], image: "img/xe/Piaggio Liberty.jpg" },
-    { name: "Honda PCX", type: "motorbike", brand: "honda", price: 190000, location: "Huế", rating: 4.6, distance: 6, amenities: ["helmet", "delivery"], image: "img/xe/Honda PCX.jpg" },
-    { name: "Yamaha Janus", type: "motorbike", brand: "yamaha", price: 120000, location: "Huế", rating: 4.0, distance: 5, amenities: ["helmet"], image: "img/xe/Yamaha Janus.jpg" },
-    { name: "Honda Air Blade", type: "motorbike", brand: "honda", price: 170000, location: "Huế", rating: 4.2, distance: 6, amenities: ["helmet", "gps"], image: "img/xe/Honda Air Blade.jpg" },
-    { name: "SYM Elegant", type: "motorbike", brand: "sym", price: 85000, location: "Huế", rating: 3.8, distance: 4, amenities: ["helmet"], image: "img/xe/SYM Elegant.jpg" },
-    { name: "Yamaha NVX", type: "motorbike", brand: "yamaha", price: 185000, location: "Huế", rating: 4.5, distance: 6, amenities: ["helmet", "delivery"], image: "img/xe/Yamaha NVX.jpg" },
-    { name: "Suzuki Raider R150", type: "motorbike", brand: "suzuki", price: 210000, location: "Huế", rating: 4.6, distance: 5, amenities: ["helmet"], image: "img/xe/Suzuki Raider R150.jpg" },
-    { name: "Honda Future", type: "motorbike", brand: "honda", price: 140000, location: "Huế", rating: 4.3, distance: 7, amenities: ["helmet"], image: "img/xe/Honda Future.jpg" },
-    { name: "Yamaha Jupiter", type: "motorbike", brand: "yamaha", price: 110000, location: "Huế", rating: 4.0, distance: 6, amenities: ["helmet"], image: "img/xe/Yamaha Jupiter.jpg" },
-    { name: "Honda Cub 50", type: "motorbike", brand: "honda", price: 90000, location: "Huế", rating: 4.1, distance: 8, amenities: ["helmet"], image: "img/xe/Honda Cub 50.jpg" },
-    { name: "Piaggio Zip", type: "motorbike", brand: "piaggio", price: 130000, location: "Huế", rating: 4.2, distance: 3, amenities: ["helmet"], image: "img/xe/Piaggio Zip.jpg" }
+    { name: "Yamaha Exciter 155", type: "motorbike", brand: "yamaha", price: 150000, location: "Phú Cát", rating: 4.5, distance: 5, amenities: ["helmet", "gps"], image: "img/xe/Yamaha Exciter 155.jpg" },
+    { name: "Honda SH Mode", type: "motorbike", brand: "honda", price: 180000, location: "Phú Bài", rating: 4.0, distance: 3, amenities: ["helmet"], image: "img/xe/Honda SH Mode.jpg" },
+    { name: "Honda Wave Alpha", type: "motorbike", brand: "honda", price: 90000, location: "Thuận An", rating: 3.5, distance: 10, amenities: ["helmet"], image: "img/xe/Honda Wave Alpha.jpg" },
+    { name: "Suzuki GSX R150", type: "motorbike", brand: "suzuki", price: 200000, location: "An Đông", rating: 4.7, distance: 4, amenities: ["helmet"], image: "img/xe/Suzuki GSX R150.jpg" },
+    { name: "Peugeot Django", type: "motorbike", brand: "peugeot", price: 170000, location: "Trường An", rating: 4.2, distance: 2, amenities: ["helmet", "gps"], image: "img/xe/Peugeot Django.jpg" },
+    { name: "Honda Lead", type: "motorbike", brand: "honda", price: 140000, location: "Vỹ Dạ", rating: 4.0, distance: 3, amenities: ["helmet"], image: "img/xe/Honda Lead.jpg" },
+    { name: "Yamaha Grande", type: "motorbike", brand: "yamaha", price: 160000, location: "Phường Đúc", rating: 4.4, distance: 5, amenities: ["helmet", "delivery"], image: "img/xe/Yamaha Grande.jpg" },
+    { name: "Honda Vision", type: "motorbike", brand: "honda", price: 130000, location: "Xuân Phú", rating: 4.1, distance: 2, amenities: ["helmet"], image: "img/xe/Honda Vision.jpg" },
+    { name: "Yamaha Sirius", type: "motorbike", brand: "yamaha", price: 100000, location: "Hương Thủy", rating: 3.9, distance: 7, amenities: ["helmet"], image: "img/xe/Yamaha Sirius.jpg" },
+    { name: "Piaggio Liberty", type: "motorbike", brand: "piaggio", price: 175000, location: "Hương Trà", rating: 4.3, distance: 4, amenities: ["helmet", "gps"], image: "img/xe/Piaggio Liberty.jpg" },
+    { name: "Honda PCX", type: "motorbike", brand: "honda", price: 190000, location: "Phú Cát", rating: 4.6, distance: 6, amenities: ["helmet", "delivery"], image: "img/xe/Honda PCX.jpg" },
+    { name: "Yamaha Janus", type: "motorbike", brand: "yamaha", price: 120000, location: "Phú Bài", rating: 4.0, distance: 5, amenities: ["helmet"], image: "img/xe/Yamaha Janus.jpg" },
+    { name: "Honda Air Blade", type: "motorbike", brand: "honda", price: 170000, location: "Thuận An", rating: 4.2, distance: 6, amenities: ["helmet", "gps"], image: "img/xe/Honda Air Blade.jpg" },
+    { name: "SYM Elegant", type: "motorbike", brand: "sym", price: 85000, location: "An Đông", rating: 3.8, distance: 4, amenities: ["helmet"], image: "img/xe/SYM Elegant.jpg" },
+    { name: "Yamaha NVX", type: "motorbike", brand: "yamaha", price: 185000, location: "Trường An", rating: 4.5, distance: 6, amenities: ["helmet", "delivery"], image: "img/xe/Yamaha NVX.jpg" },
+    { name: "Suzuki Raider R150", type: "motorbike", brand: "suzuki", price: 210000, location: "Vỹ Dạ", rating: 4.6, distance: 5, amenities: ["helmet"], image: "img/xe/Suzuki Raider R150.jpg" },
+    { name: "Honda Future", type: "motorbike", brand: "honda", price: 140000, location: "Phường Đúc", rating: 4.3, distance: 7, amenities: ["helmet"], image: "img/xe/Honda Future.jpg" },
+    { name: "Yamaha Jupiter", type: "motorbike", brand: "yamaha", price: 110000, location: "Xuân Phú", rating: 4.0, distance: 6, amenities: ["helmet"], image: "img/xe/Yamaha Jupiter.jpg" },
+    { name: "Honda Cub 50", type: "motorbike", brand: "honda", price: 90000, location: "Hương Thủy", rating: 4.1, distance: 8, amenities: ["helmet"], image: "img/xe/Honda Cub 50.jpg" },
+    { name: "Piaggio Zip", type: "motorbike", brand: "piaggio", price: 130000, location: "Hương Trà", rating: 4.2, distance: 3, amenities: ["helmet"], image: "img/xe/Piaggio Zip.jpg" }
 ];
 
 let filteredVehicles = [...vehicles];
