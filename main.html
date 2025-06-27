@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOZI - Cho Thuê Xe Tự Lái</title>
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="img/img1.jpg" alt="GOZI Logo">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="search.html">Tìm xe</a></li>
+                    <li><a href="#">Cho thuê xe</a></li>
+                    <li><a href="ho_tro.html">Hổ trợ</a></li>
+                    <li><a href="index.html" class="btn-auth">Đăng xuất</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div class="overlay"></div>
+    </header>
+
+<section class="info-highlights-section">
+    <div class="container highlights-slider-container">
+
+            <h2 class="highlight-heading">Tại sao bạn nên cho thuê xe trên GOZI?</h2>
+
+        <div class="highlights-slider-wrapper">
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <img src="img/b1.jpg" alt="Icon Thu nhập"> 
+                </div>
+                <h3>Thu nhập</h3>
+                <p>Gia tăng thu nhập từ 5-10 triệu/tháng</p>
+            </div>
+
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <img src="img/b2.jpg" alt="Icon Nhanh chóng">
+                </div>
+                <h3>Nhanh chóng</h3>
+                <p>Thủ tục đăng ký cho thuê ONLINE nhanh chóng trong vòng 10 phút</p>
+            </div>
+
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <img src="img/b3.jpg" alt="Icon Chủ động">
+                </div>
+                <h3>Chủ động</h3>
+                <p>Toàn quyền quyết định giá và thời gian cho thuê</p>
+            </div>
+
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <img src="img/b4.jpg" alt="Icon Bảo hiểm">
+                </div>
+                <h3>Bảo hiểm</h3>
+                <p>Hỗ trợ bảo hiểm mất cắp xe nguyên chiếc</p>
+            </div>
+
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <img src="img/b5.jpg" alt="Icon GPS">
+                </div>
+                <h3>GPS</h3>
+                <p>Hỗ trợ cài đặt GPS với giá gốc để quản lý xe an toàn</p>
+            </div>
+
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <img src="img/b6.jpg" alt="Icon Chăm sóc khách hàng">
+                </div>
+                <h3>Chăm sóc khách hàng</h3>
+                <p>Đội ngũ GOZI tư vấn chặt chẽ quy trình và kinh nghiệm cho thuê an toàn</p>
+            </div>
+            
+        </div>
+        <button class="highlights-slider-arrow highlights-prev-arrow">&#10094;</button>
+        <button class="highlights-slider-arrow highlights-next-arrow">&#10095;</button>
+        <div class="highlights-slider-dots">
+            </div>
+    </div>
+</section>
+
+    <section class="quick-search-section">
+        <div class="container">
+            <div class="search-bar-elements">
+                <div class="search-input-group">
+                    <label for="car-type">Loại xe</label>
+                    <select id="car-type">
+                        <option value="">Chọn loại xe</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                        <option value="hatchback">Hatchback</option>
+                        <option value="mpv">MPV</option>
+                    </select>
+                </div>
+                <div class="search-input-group">
+                    <label for="location">Địa điểm</label>
+                    <select id="location">
+                        <option value="">Chọn địa điểm</option>
+                        <option value="hcm">TP. Hồ Chí Minh</option>
+                        <option value="hn">Hà Nội</option>
+                        <option value="dn">Đà Nẵng</option>
+                    </select>
+                </div>
+                <div class="search-input-group">
+                    <label for="price-range">Khoảng giá</label>
+                    <select id="price-range">
+                        <option value="">Chọn khoảng giá</option>
+                        <option value="0-500">Dưới 500k/ngày</option>
+                        <option value="500-1000">500k - 1 triệu/ngày</option>
+                        <option value="1000+">Trên 1 triệu/ngày</option>
+                    </select>
+                </div>
+                <a href="search.html"> <button class="search-button">Tìm xe</button> </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-vehicles">
+        <div class="container">
+            <h2>Xe nổi bật <i class="fas fa-arrow-right arrow-icon"></i></h2>
+            <div class="vehicle-list">
+                <div class="vehicle-item">
+                    <img src="img/xe/Toyota Vios.jpg" alt="Toyota Vios">
+                    <h3 class="vehicle-name">Toyota Vios</h3>
+                    <p class="price">450.000 VNĐ/ngày</p>
+                </div>
+                <div class="vehicle-item">
+                    <img src="img/xe/Hyundai Accent.jpg" alt="Hyundai Accent">
+                    <h3 class="vehicle-name">Hyundai Accent</h3>
+                    <p class="price">500.000 VNĐ/ngày</p>
+                </div>
+                <div class="vehicle-item">
+                    <img src="img/xe/Honda City.jpg" alt="Honda City">
+                    <h3 class="vehicle-name">Honda City</h3>
+                    <p class="price">550.000 VNĐ/ngày</p>
+                </div>
+                <div class="vehicle-item">
+                    <img src="img/xe/Mazda_3.jpg" alt="Mazda 3">
+                    <h3 class="vehicle-name">Mazda 3</h3>
+                    <p class="price">600.000 VNĐ/ngày</p>
+                </div>
+                <!-- <div class="vehicle-item">
+                    <img src="img/car5.png" alt="Kia Seltos">
+                    <h3 class="vehicle-name">Kia Seltos</h3>
+                    <p class="price">700.000 VNĐ/ngày</p>
+                </div>
+                <div class="vehicle-item">
+                    <img src="img/car6.png" alt="Ford Ranger">
+                    <h3 class="vehicle-name">Ford Ranger</h3>
+                    <p class="price">800.000 VNĐ/ngày</p>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <section class="info-sections">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Quy trình đơn giản</h3>
+                    <p>Chỉ với vài bước đăng ký và xác minh đơn giản, bạn có thể nhanh chóng bắt đầu hành trình thuê xe hoặc cho thuê xe của mình.</p>
+                </div>
+                <div class="info-card">
+                    <h3>An toàn bảo mật</h3>
+                    <p>Chúng tôi cam kết bảo vệ thông tin cá nhân và giao dịch của bạn với các tiêu chuẩn bảo mật hàng đầu.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Hỗ trợ 24/7</h3>
+                    <p>Đội ngũ hỗ trợ khách hàng của chúng tôi luôn sẵn sàng phục vụ 24/7 để giải đáp mọi thắc mắc và hỗ trợ bạn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="user-reviews-section">
+        <div class="container">
+            <h2>Khách hàng nói gì về chúng tôi?</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <span class="quote">“</span>
+                    <div class="review-text">
+                        <p>Thật tuyệt vời! Ứng dụng GOZI giúp tôi kiếm thêm thu nhập từ chiếc xe nhàn rỗi của mình một cách dễ dàng và an toàn. Rất khuyến khuyên!</p>
+                    </div>
+                    <p class="reviewer-name">- Nguyễn Văn Minh</p>
+                </div>
+                <div class="review-card">
+                    <span class="quote">“</span>
+                    <div class="review-text">
+                        <p>Tôi rất hài lòng với dịch vụ thuê xe tại GOZI. Xe sạch sẽ, thủ tục nhanh gọn và giá cả hợp lý. Chắc chắn sẽ tiếp tục sử dụng.</p>
+                    </div>
+                    <p class="reviewer-name">- Trần Thị Lý</p>
+                </div>
+                <div class="review-card">
+                    <span class="quote">“</span>
+                    <div class="review-text">
+                        <p>Đội ngũ hỗ trợ khách hàng của GOZI rất nhiệt tình và chuyên nghiệp. Mọi vấn đề đều được giải quyết nhanh chóng. Cảm ơn GOZI!</p>
+                    </div>
+                    <p class="reviewer-name">- Nguyễn Tấn Minh</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h3>Về GOZI</h3>
+                    <ul>
+                        <li><a href="gioi_thieu.html">Giới thiệu</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="chinh_sach.html">Chính sách & Quy định</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Dịch vụ</h3>
+                    <ul>
+                        <li><a href="#">Thuê xe</a></li>
+                        <li><a href="#">Cho thuê xe</a></li>
+                        <li><a href="#">Bảo hiểm</a></li>
+                        <li><a href="#">Hỗ trợ GPS</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Hỗ trợ</h3>
+                    <ul>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#">Hướng dẫn sử dụng</a></li>
+                        <li><a href="#">Hỗ trợ kỹ thuật</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Liên hệ</h3>
+                    <p>Địa chỉ: Hùng Vương, Phường Phú Nhuận, thành phố Huế</p>
+                    <p>Điện thoại: 19008686</p>
+                    <p>Email: info@gozi.com</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 GOZI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Script/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tìm kiếm xe - GOZI</title>
+  <link rel="stylesheet" href="CSS/search.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <div class="logo"><a href="index.html"><img src="img/img1.jpg" alt="GOZI Logo"/></a></div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="main.html">Quay lại trang chủ</a></li>  
+          <li><a href="search.html">Tìm xe</a></li>
+          <li><a href="#">Cho thuê xe</a></li>
+          <li><a href="ho_tro.html">Hỗ trợ</a></li>
+          <li><a href="index.html" class="btn-auth">Đăng xuất</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger-menu" id="hamburgerBtn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="quick-search-section">
+      <div class="container">
+        <div class="search-bar-elements">
+          <div class="search-input-group">
+            <label for="car-type">Loại xe</label>
+            <select id="car-type">
+              <option value="">Chọn loại xe</option>
+              <option value="motorbike">Xe máy</option>
+              <option value="electric-bike">Xe điện</option>
+              <option value="car">Ô tô</option>
+            </select>
+          </div>
+            <div class="search-input-group">
+            <label for="location">Vị trí</label>
+            <input type="text" id="location" placeholder="Điểm đón"/>
+            </div>
+          <div class="search-input-group">
+            <label for="time">Thời gian</label>
+            <input type="text" id="time" placeholder="Ngày/Giờ"/>
+          </div>
+          <button class="search-button">Tìm kiếm</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-results-section container">
+      <div class="filter-sidebar">
+        <h3>Bộ lọc</h3>
+        <div class="filter-group">
+          <h4>Loại xe</h4>
+          <label><input type="checkbox" name="vehicle_type" value="motorbike"/> Xe máy</label>
+          <label><input type="checkbox" name="vehicle_type" value="electric-bike"/> Xe điện</label>
+          <label><input type="checkbox" name="vehicle_type" value="car"/> Ô tô</label>
+        </div>
+        <div class="filter-group">
+          <h4>Khoảng giá</h4>
+          <input type="range" min="50000" max="1000000" value="100000" class="slider" id="price-range"/>
+          <p><span id="price-value">1.000.000</span>đ/ngày</p>
+        </div>
+        <div class="filter-group">
+          <h4>Khoảng cách</h4>
+          <input type="range" min="1" max="50" value="10" class="slider" id="distance-range"/>
+          <p><span id="distance-value">10</span> km</p>
+        </div>
+        <div class="filter-group">
+          <h4>Đánh giá sao</h4>
+          <label><input type="checkbox" name="star_rating" value="5"/> ⭐⭐⭐⭐⭐ (5 sao)</label>
+          <label><input type="checkbox" name="star_rating" value="4"/> ⭐⭐⭐⭐ (4+ sao)</label>
+          <label><input type="checkbox" name="star_rating" value="3"/> ⭐⭐⭐ (3+ sao)</label>
+        </div>
+        <div class="filter-group">
+          <h4>Tiện nghi</h4>
+          <label><input type="checkbox" name="amenity" value="helmet"/> Mũ bảo hiểm</label>
+          <label><input type="checkbox" name="amenity" value="gps"/> GPS</label>
+          <label><input type="checkbox" name="amenity" value="delivery"/> Giao xe tận nơi</label>
+        </div>
+        <button class="clear-filters-btn">Bỏ lọc</button>
+      </div>
+
+      <div class="results-content">
+        <div class="results-header">
+          <h2>Kết quả tìm kiếm</h2>
+          <div class="sort-by">
+            <span>Sắp xếp theo:</span>
+            <select id="sort-select">
+              <option value="">Mặc định</option>
+              <option value="price-asc">Giá thấp đến cao</option>
+              <option value="price-desc">Giá cao đến thấp</option>
+              <option value="rating-desc">Đánh giá cao nhất</option>
+              <option value="distance-asc">Gần nhất</option>
+            </select>
+          </div>
+        </div>
+        </div>
+    </section>
+
+    <div class="pagination-wrapper">
+      <div class="pagination" id="pagination-container"></div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container footer-cols">
+      <div class="footer-col">
+        <h3>Về GOZI</h3>
+        <ul>
+          <li><a href="gioi_thieu.html">Giới thiệu</a></li>
+          <li><a href="#">Tuyển dụng</a></li>
+          <li><a href="chinh_sach.html">Chính sách & Quy định</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Hỗ trợ khách hàng</h3>
+        <ul>
+          <li><a href="#">Câu hỏi thường gặp (FAQ)</a></li>
+          <li><a href="#">Trung tâm trợ giúp</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Điều khoản dịch vụ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Liên hệ</h3>
+        <p>Email: info@gozi.com</p>
+        <p>Điện thoại: 19008686</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 GOZI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="Script/search.js"></script>
+</body>
+</html>

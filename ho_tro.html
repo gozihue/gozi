@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quy trình đăng ký cho thuê xe - GOZI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Nút quay lại ở góc trái */
+    .back-button-fixed {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 10px 16px;
+      background-color: #800080;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #660066;
+    }
+
+    header {
+      background-color: #800080;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 30px 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 10px;
+    }
+
+    h2 {
+      color: #800080;
+      margin-bottom: 10px;
+    }
+
+    .step {
+      margin-bottom: 30px;
+    }
+
+    .step h3 {
+      margin-bottom: 8px;
+      color: #444;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .icon {
+      color: #800080;
+      margin-right: 6px;
+    }
+    /* ////////////////////////////////////////////////////////// */
+    .main-footer {
+    background-color: #800080; /* tím */
+    color: #fff;
+    padding: 50px 20px 20px;
+    border-radius: 0 0 10px 10px;
+}
+
+.footer-cols {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-col {
+    flex: 1 1 200px;
+}
+
+.footer-col h3 {
+    color: #ffd700; /* vàng */
+    margin-bottom: 10px;
+    position: relative;
+    font-weight: bold;
+}
+
+.footer-col h3::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #fff;
+    margin-top: 6px;
+    margin-bottom: 14px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    opacity: 0.8;
+}
+
+.footer-col p {
+    margin: 6px 0;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 18px;
+    margin-right: 12px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+.copyright {
+    border-top: 1px solid #ccc;
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: right;
+    font-size: 14px;
+}
+
+
+
+.back-button-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #800080;
+    color: #fff;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #660066;
+}
+
+.intro-header {
+    position: relative; /* Quan trọng để chứa nút */
+    background-color: #800080;
+    color: white;
+    padding: 60px 20px 40px;
+    text-align: center;
+}
+
+
+.rent-process {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.rent-process h2 {
+  color: #800080;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.rent-process .step {
+  margin-bottom: 25px;
+}
+
+.rent-process .step h3 {
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.rent-process ul {
+  padding-left: 20px;
+  margin-top: 6px;
+}
+
+.rent-process ul li {
+  margin-bottom: 6px;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Nút quay lại -->
+    <header class="intro-header">
+        <div class="container">
+            <!-- Nút quay lại -->
+            <div class="back-button-container">
+                <a href="main.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Quay lại trang chủ
+                </a>
+            </div>
+            <h1>Giới Thiệu về GOZI</h1>
+        </div>
+    </header>
+
+  <header>
+    <h1>Quy trình đăng ký cho thuê xe</h1>
+  </header>
+
+  <section>
+    <div class="step">
+      <h2>1. Tải ứng dụng GOZI - Đăng ký tài khoản</h2>
+      <p><i class="fas fa-download icon"></i>Tải ứng dụng GOZI trên App Store (iOS) hoặc Google Play (Android).</p>
+      <p><i class="fas fa-user-plus icon"></i>Đăng ký tài khoản nhanh chóng qua:</p>
+      <ul>
+        <li>Số điện thoại</li>
+        <li>Email</li>
+        <li>Hoặc liên kết mạng xã hội</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <h2>2. Chọn xe & địa điểm nhận xe</h2>
+      <p><i class="fas fa-map-marker-alt icon"></i>Nhập địa điểm nhận xe (nhà ga, khách sạn, sân bay...).</p>
+      <p><i class="fas fa-car icon"></i>Lựa chọn loại xe phù hợp:</p>
+      <ul>
+        <li>Xe số (tiết kiệm, nhẹ)</li>
+        <li>Xe tay ga (thoải mái, thời trang)</li>
+        <li>Xe điện (êm ái, không cần xăng)</li>
+      </ul>
+      <p>Xem hình ảnh, thông số, đánh giá từ người thuê trước.</p>
+    </div>
+
+    <div class="step">
+      <h2>3. Chọn thời gian & ưu đãi</h2>
+      <ul>
+        <li>Chọn thời gian thuê: theo giờ, ngày hoặc dài hạn</li>
+        <li>Gợi ý ưu đãi:
+          <ul>
+            <li>Giảm 50% cho lần đầu thuê</li>
+            <li>Thuê 2 ngày tặng 1 ngày</li>
+            <li>Tặng mũ bảo hiểm & áo mưa</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <h2>4. Thanh toán an toàn</h2>
+      <ul>
+        <li>Thẻ ngân hàng (ATM/Visa/MasterCard)</li>
+        <li>Ví điện tử (Momo, ZaloPay)</li>
+        <li>Thanh toán khi nhận xe</li>
+      </ul>
+      <p>Xác nhận đơn thuê trong 1 chạm.</p>
+    </div>
+
+    <div class="step">
+      <h2>5. Nhận xe tận nơi</h2>
+      <p>Nhân viên hoặc đối tác GOZI giao xe tận nơi.</p>
+      <p>Thực hiện kiểm tra, chụp ảnh xe, ký nhận điện tử.</p>
+    </div>
+
+    <div class="step">
+      <h2>6. Sử dụng & hỗ trợ trong suốt hành trình</h2>
+      <p>Di chuyển thoải mái trong nội thành.</p>
+      <p>Nếu gặp sự cố, gọi hotline hỗ trợ 24/7.</p>
+      <p>Có thể gia hạn thuê trực tiếp trên app.</p>
+    </div>
+
+    <div class="step">
+      <h2>7. Trả xe linh hoạt</h2>
+      <p>Trả xe tại điểm hẹn hoặc yêu cầu đón tận nơi.</p>
+      <p>Nhân viên kiểm tra lại tình trạng xe và kết thúc hợp đồng.</p>
+      <p>Đánh giá trải nghiệm và nhận ưu đãi cho lần sau.</p>
+    </div>
+  </section>
+
+
+
+      <section class="info-sections">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Quy trình đơn giản</h3>
+                    <p>Chỉ với vài bước đăng ký và xác minh đơn giản, bạn có thể nhanh chóng bắt đầu hành trình thuê xe hoặc cho thuê xe của mình.</p>
+                </div>
+                <div class="info-card">
+                    <h3>An toàn bảo mật</h3>
+                    <p>Chúng tôi cam kết bảo vệ thông tin cá nhân và giao dịch của bạn với các tiêu chuẩn bảo mật hàng đầu.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Hỗ trợ 24/7</h3>
+                    <p>Đội ngũ hỗ trợ khách hàng của chúng tôi luôn sẵn sàng phục vụ 24/7 để giải đáp mọi thắc mắc và hỗ trợ bạn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="rent-process">
+  <div class="container">
+    <h2>Hướng dẫn thuê xe trên GOZI</h2>
+
+    <div class="step">
+      <h3>Bước 1: Đăng ký / Đăng nhập tài khoản</h3>
+      <p>Đăng nhập bằng tài khoản GOZI hoặc qua Facebook/Google. Nếu chưa có tài khoản, chọn "Đăng ký ngay" để tạo tài khoản mới.</p>
+    </div>
+
+    <div class="step">
+      <h3>Bước 2: Tìm kiếm xe</h3>
+      <ul>
+        <li>Cách 1: Nhập địa chỉ tại thanh tìm kiếm</li>
+        <li>Cách 2: Xem xe nổi bật tại mục Đề xuất</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <h3>Bước 3: Lựa chọn xe và gửi yêu cầu thuê</h3>
+      <ul>
+        <li>Kiểm tra hình ảnh, đánh giá, vị trí xe trên bản đồ</li>
+        <li>Xem yêu cầu giấy tờ và thông tin chủ xe</li>
+        <li>Kiểm tra giá thuê, thời gian, điểm giao nhận, giới hạn km</li>
+        <li>Nhập mã khuyến mãi nếu có</li>
+        <li>Gửi yêu cầu "Đặt xe" và chờ phản hồi từ chủ xe</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <h3>Bước 4: Thanh toán giữ chỗ</h3>
+      <p>Sau khi chủ xe chấp nhận yêu cầu, bạn cần thanh toán 40% hoặc 100% giá trị chuyến đi bằng các phương thức như:</p>
+      <ul>
+        <li>Chuyển khoản ngân hàng</li>
+        <li>Ví điện tử (Momo, ZaloPay)</li>
+        <li>Thẻ quốc tế (Visa, Master, JCB)</li>
+        <li>Thẻ nội địa ATM</li>
+      </ul>
+      <p>Sau khi thanh toán, bạn sẽ nhận được thông tin liên hệ và địa chỉ chính xác của chủ xe.</p>
+    </div>
+
+    <p>Nếu cần hỗ trợ, hãy gọi ngay tổng đài <strong>19008686</strong> hoặc chat trực tiếp trên website GOZI.</p>
+  </div>
+</section>
+
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h3>Về GOZI</h3>
+                    <ul>
+                        <li><a href="gioi_thieu.html">Giới thiệu</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Dịch vụ</h3>
+                    <ul>
+                        <li><a href="#">Thuê xe</a></li>
+                        <li><a href="#">Cho thuê xe</a></li>
+                        <li><a href="#">Bảo hiểm</a></li>
+                        <li><a href="#">Hỗ trợ GPS</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Hỗ trợ</h3>
+                    <ul>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#">Hướng dẫn sử dụng</a></li>
+                        <li><a href="#">Hỗ trợ kỹ thuật</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Liên hệ</h3>
+                    <p>Địa chỉ: Hùng Vương, Phường Phú Nhuận, thành phố Huế</p>
+                    <p>Điện thoại: 19008686</p>
+                    <p>Email: info@gozi.com</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 GOZI. All rights reserved.</p>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+</html>

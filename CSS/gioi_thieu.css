@@ -1,0 +1,161 @@
+/* Reset và font */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.intro-header {
+  background-color: #800080; /* tím */
+  color: white;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.intro-header h1 {
+  font-size: 2.8em;
+  margin: 0;
+}
+
+/* Hero Section */
+.intro-hero {
+  background-color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.intro-hero img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.intro-hero h2 {
+  color: #800080;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+/* Mission Section */
+.mission-section {
+  background-color: #eee;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.mission-section img {
+  max-width: 90%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+/* Value Section */
+.value-section {
+  padding: 40px 20px;
+  background-color: #fff;
+}
+
+.value-section h2 {
+  color: #32CD32;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.value-section ul {
+  list-style: disc inside;
+  padding-left: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Advantage Section */
+.advantage-section {
+  background-color: #f5f5f5;
+  padding: 50px 20px;
+}
+
+.advantage-section h2 {
+  text-align: center;
+  color: #800080;
+  margin-bottom: 30px;
+}
+
+.advantage-section img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto 30px;
+  border-radius: 10px;
+}
+
+.advantage-section ol {
+  list-style: decimal inside;
+  max-width: 750px;
+  margin: 0 auto;
+  padding-left: 20px;
+}
+
+.advantage-section li {
+  margin-bottom: 15px;
+  font-size: 1.05em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .intro-header h1 {
+    font-size: 2em;
+  }
+
+  .intro-hero h2,
+  .mission-section h2,
+  .value-section h2,
+  .advantage-section h2 {
+    font-size: 1.5em;
+  }
+
+  .container {
+    padding: 15px;
+  }
+}
+
+
+
+.back-button-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #800080;
+    color: #fff;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #660066;
+}
+
+.intro-header {
+    position: relative; /* Quan trọng để chứa nút */
+    background-color: #800080;
+    color: white;
+    padding: 60px 20px 40px;
+    text-align: center;
+}

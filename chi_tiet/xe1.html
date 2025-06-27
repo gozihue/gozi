@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chi Tiết Xe</title>
+
+  <!-- Leaflet (Map) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary-color: #800080;
+      --secondary-color: #6c757d;
+      --accent-color: #800080;
+      --text-color: #800080;
+      --light-bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --border-color: #e9ecef;
+      --shadow-light: rgba(0, 0, 0, 0.05);
+    }
+
+    * { box-sizing: border-box; }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--light-bg);
+    }
+
+    .header {
+      background-color: var(--card-bg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      box-shadow: 0 2px 4px var(--shadow-light);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .back-button {
+      background: none;
+      border: none;
+      color: var(--secondary-color);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .vehicle-detail-main-content {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .vehicle-info-section,
+    .map-section,
+    .booking-section,
+    .comments-section {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px var(--shadow-light);
+      flex: 1 1 100%;
+    }
+
+.vehicle-image-gallery img {
+  max-width: 500px;
+  width: 90%;
+  height: auto;
+  margin: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+
+    .vehicle-info-details h2 {
+      font-size: 2rem;
+      color: var(--text-color);
+    }
+
+    .vehicle-info-details p { color: var(--secondary-color); margin: 5px 0; }
+    .price-display { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+    .rating { color: gold; font-size: 1.1rem; }
+
+    .amenities-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .amenity-item {
+      background-color: var(--light-bg);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--text-color);
+    }
+
+    #map {
+      width: 100%;
+      height: 400px;
+      border-radius: 8px;
+    }
+
+    .booking-section input[type="date"] {
+      padding: 8px;
+      width: 100%;
+      margin-bottom: 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+    }
+
+    .request-button {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .comments-section .comment-item {
+      background-color: var(--light-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 15px;
+      background-color: var(--text-color);
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <button class="back-button" onclick="history.back();"><i class="fas fa-arrow-left"></i> Quay lại</button>
+    <a href="../index.html" class="logo">GoZI</a>
+    <div></div>
+  </header>
+
+  <div class="vehicle-detail-main-content">
+    <div class="vehicle-info-section">
+      <div class="vehicle-image-gallery">
+        <img id="vehicle-image" src="" alt="Ảnh xe">
+      </div>
+      <div class="vehicle-info-details">
+        <h2 id="vehicle-name"></h2>
+        <p><strong>Giá thuê:</strong> <span id="vehicle-price" class="price-display"></span></p>
+        <p><strong>Vị trí:</strong> <span id="vehicle-location"></span></p>
+        <p class="rating"><span id="vehicle-stars"></span> <span id="vehicle-rating"></span></p>
+        <div class="amenities-list" id="amenities-list"></div>
+      </div>
+    </div>
+
+    <div class="map-section">
+      <h3>Vị trí xe</h3>
+      <div id="map">Đang tải bản đồ...</div>
+    </div>
+
+    <div class="booking-section">
+      <h3>Đặt thuê xe</h3>
+      <label for="start-date">Ngày bắt đầu:</label>
+      <input type="date" id="start-date" />
+      <label for="end-date">Ngày kết thúc:</label>
+      <input type="date" id="end-date" />
+      <button class="request-button">Yêu cầu đặt thuê</button>
+    </div>
+
+    <div class="comments-section" id="comments-section"></div>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 GoZI. All rights reserved.
+  </footer>
+
+  <script>
+    function getRandomNameVN() {
+      const lastNames = ["Nguyễn", "Trần", "Lê", "Phạm", "Hoàng", "Đỗ", "Vũ", "Đinh", "Bùi"];
+      const middleNames = ["Văn", "Thị", "Hữu", "Ngọc", "Thanh", "Hoàng", "Phương"];
+      const firstNames = ["Anh", "Minh", "Tú", "Hùng", "Thảo", "Lan", "Châu", "Phúc", "Dũng", "Trang", "Khoa", "Hà"];
+      return `${lastNames[Math.floor(Math.random() * lastNames.length)]} ${middleNames[Math.floor(Math.random() * middleNames.length)]} ${firstNames[Math.floor(Math.random() * firstNames.length)]}`;
+    }
+
+    function getRandomReview() {
+      const reviews = [
+        "Xe mới, chủ xe thân thiện, trải nghiệm tốt.",
+        "Xe sạch, vị trí thuận tiện, giá hợp lý.",
+        "Xe chạy ổn định, không có vấn đề gì.",
+        "Giao xe đúng giờ, thủ tục nhanh.",
+        "Chủ xe nhiệt tình, sẽ ủng hộ lần sau.",
+        "Giá hơi cao nhưng chất lượng tốt.",
+        "Xe hơi cũ nhưng vẫn sử dụng tốt."
+      ];
+      const rating = Math.floor(Math.random() * 2) + 4;
+      const stars = "⭐".repeat(rating);
+      const name = getRandomNameVN();
+      const text = reviews[Math.floor(Math.random() * reviews.length)];
+      return `<div class="comment-item"><strong>${name}</strong> ${stars}<p>${text}</p></div>`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const data = JSON.parse(localStorage.getItem("selectedVehicle"));
+      if (!data) return;
+
+      // Nếu là ảnh local thì cần sửa lại đường dẫn
+      if (!data.image.startsWith("http")) {
+        data.image = "../" + data.image;
+      }
+
+      document.getElementById("vehicle-image").src = data.image;
+      document.getElementById("vehicle-name").textContent = data.name;
+      document.getElementById("vehicle-price").textContent = data.price.toLocaleString("vi-VN") + "đ/ngày";
+      document.getElementById("vehicle-location").textContent = data.location;
+      document.getElementById("vehicle-stars").textContent = "⭐".repeat(Math.floor(data.rating));
+      document.getElementById("vehicle-rating").textContent = `(${data.rating})`;
+
+      const icons = {
+        helmet: '<i class="fas fa-helmet-safety"></i>',
+        gps: '<i class="fas fa-map-marked-alt"></i>',
+        delivery: '<i class="fas fa-truck"></i>'
+      };
+      document.getElementById("amenities-list").innerHTML = data.amenities.map(a => `<div class="amenity-item">${icons[a] || ""} ${a}</div>`).join("");
+
+      const cityCoords = {
+        "Huế": [16.4637, 107.5909],
+        "Đà Nẵng": [16.0471, 108.2062],
+        "Hội An": [15.8801, 108.3380]
+      };
+      const base = cityCoords[data.location] || [16.4637, 107.5909];
+      const lat = base[0] + (Math.random() - 0.5) * 0.02;
+      const lng = base[1] + (Math.random() - 0.5) * 0.02;
+
+      const map = L.map('map').setView([lat, lng], 14);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+      L.marker([lat, lng]).addTo(map).bindPopup(`<b>${data.name}</b><br>${data.location}`).openPopup();
+
+      const commentsHTML = Array.from({ length: 3 }, () => getRandomReview()).join("");
+      document.getElementById("comments-section").innerHTML = `<h3>Đánh giá người dùng</h3>${commentsHTML}`;
+    });
+  </script>
+</body>
+</html>

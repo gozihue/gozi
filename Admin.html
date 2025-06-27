@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Quản Trị - GoZI Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="CSS/Admin.css">
+</head>
+<body>
+    <button class="toggle-sidebar-btn mobile-only-toggle" id="mobileToggleSidebarBtn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="logo">GoZI Admin</a>
+                <button class="toggle-sidebar-btn desktop-toggle" id="desktopToggleSidebarBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                </div>
+            <nav class="main-menu">
+                <ul>
+                    <li class="menu-item active" data-content="overview">
+                        <i class="fas fa-tachometer-alt"></i> <span>Bảng điều khiển</span>
+                    </li>
+                    <li class="menu-item" data-content="users">
+                        <i class="fas fa-users"></i> <span>Quản lý người dùng</span>
+                    </li>
+                    <li class="menu-item" data-content="vehicles">
+                        <i class="fas fa-car"></i> <span>Quản lý xe</span>
+                    </li>
+                    <li class="menu-item" data-content="bookings">
+                        <i class="fas fa-calendar-alt"></i> <span>Quản lý giao dịch</span>
+                    </li>
+                    <li class="menu-item" data-content="reports">
+                        <i class="fas fa-chart-bar"></i> <span>Báo cáo</span>
+                    </li>
+                    <li class="menu-item" data-content="violations">
+                        <i class="fas fa-exclamation-triangle"></i> <span>Danh sách vi phạm</span>
+                    </li>
+                    <li class="menu-item" data-content="approval">
+                        <i class="fas fa-check-circle"></i> <span>Kiểm duyệt đăng xe</span>
+                    </li>
+                    <li class="menu-item" id="logout-item">
+                        <i class="fas fa-sign-out-alt"></i> <span>Đăng xuất</span>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <main class="main-content">
+            <div class="main-content-header">
+                <h2>Trang Admin</h2>
+            </div>
+
+            <section id="overview" class="dashboard-section active">
+                <div class="section-header">
+                    <h3>Bảng điều khiển</h3>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-users icon-large"></i>
+                        <p class="stat-value" id="total-users">0</p>
+                        <p class="stat-label">Tổng người dùng</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-car icon-large"></i>
+                        <p class="stat-value" id="total-vehicles">0</p>
+                        <p class="stat-label">Tổng xe</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-dollar-sign icon-large"></i>
+                        <p class="stat-value" id="total-revenue">0</p>
+                        <p class="stat-label">Tổng doanh thu</p>
+                    </div>
+                </div>
+
+                <div class="recent-activities">
+                    <div class="section-header">
+                        <h3>Người dùng gần đây</h3>
+                        <a href="#" class="view-all-link" data-target="users">Xem tất cả</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tên</th>
+                                    <th>Email</th>
+                                    <th>Vai trò</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentUsersTableBody">
+                                <tr><td>Nguyễn Văn A</td><td>nguyenvana@example.com</td><td>Người dùng</td></tr>
+                                <tr><td>Trần Thị B</td><td>tranthib@example.com</td><td>Chủ xe</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="recent-activities">
+                    <div class="section-header">
+                        <h3>Đơn đặt xe gần đây</h3>
+                        <a href="#" class="view-all-link" data-target="bookings">Xem tất cả</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Xe</th>
+                                    <th>Người thuê</th>
+                                    <th>Ngày</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentBookingsTableBody">
+                                <tr><td>Toyota Camry</td><td>Lê Văn C</td><td>20/06/2025</td><td><span class="status-active">Đang thuê</span></td></tr>
+                                <tr><td>Honda Civic</td><td>Phạm Thị D</td><td>19/06/2025</td><td><span class="status-completed">Hoàn tất</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="users" class="dashboard-section">
+                <div class="section-header">
+                    <h3>Quản lý người dùng</h3>
+                    <button class="add-new-btn"><i class="fas fa-user-plus"></i> Thêm người dùng mới</button>
+                </div>
+                <p>Nội dung quản lý người dùng sẽ hiển thị danh sách người dùng, chức năng thêm/sửa/xóa, v.v.</p>
+            </section>
+
+            <section id="vehicles" class="dashboard-section">
+                <div class="section-header">
+                    <h3>Quản lý xe</h3>
+                    <button class="add-new-btn"><i class="fas fa-car-side"></i> Thêm xe mới</button>
+                </div>
+                <p>Nội dung quản lý xe sẽ hiển thị danh sách tất cả các xe, chức năng kiểm duyệt, sửa/xóa.</p>
+            </section>
+
+            <section id="bookings" class="dashboard-section">
+                <h3>Quản lý giao dịch</h3>
+                <p>Nội dung quản lý giao dịch sẽ hiển thị chi tiết các đơn đặt xe, trạng thái, lịch sử.</p>
+            </section>
+
+            <section id="reports" class="dashboard-section">
+                <h3>Báo cáo</h3>
+                <p>Nội dung báo cáo sẽ hiển thị các biểu đồ, số liệu thống kê về doanh thu, lượt thuê, v.v.</p>
+            </section>
+
+            <section id="violations" class="dashboard-section">
+                <h3>Danh sách vi phạm</h3>
+                <p>Nội dung danh sách vi phạm sẽ hiển thị các trường hợp vi phạm, thông tin liên quan và hành động.</p>
+            </section>
+
+            <section id="approval" class="dashboard-section">
+                <h3>Kiểm duyệt đăng xe</h3>
+                <p>Nội dung kiểm duyệt đăng xe sẽ hiển thị các xe đang chờ duyệt, chức năng duyệt/từ chối.</p>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="Script/Admin.js"></script>
+</body>
+</html>

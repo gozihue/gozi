@@ -1,0 +1,1147 @@
+/* ==========================================================
+// 1. Biến CSS (Variables)
+========================================================== */
+:root {
+    --primary-color: #FFD700; /* Vàng - Golden Hue */
+    --secondary-color: #800080; /* Tím - Royal Purple */
+    --dark-secondary-color: #660466; /* Tím đậm - Deeper Purple */
+    --text-color: #333; /* Màu chữ chính */
+    --light-bg: #f9f9f9; /* Nền sáng */
+    --dark-bg: #f0f0f0; /* Nền tối hơn một chút */
+    --border-color: #e0e0e0; /* Màu viền */
+    --accent-color: #800080; /* Màu nhấn (đặt trùng với secondary-color cho sự nhất quán) */
+    --light-blue: #ffffff; /* Xanh dương nhạt cho các icon highlight */
+
+    /* Shadows for depth */
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --shadow-strong: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================
+// 2. Kiểu dáng cơ bản (Base Styles)
+========================================================== */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Đảm bảo padding và border được tính vào chiều rộng/cao */
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--light-bg);
+    overflow-x: hidden; /* Ngăn cuộn ngang không mong muốn */
+}
+
+/* Base Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Padding ngang cho nội dung */
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Kế thừa màu từ cha */
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+/* ==========================================================
+// 3. Header (Phần đầu trang)
+========================================================== */
+.main-header {
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: var(--shadow-light);
+    position: sticky; /* Sticky header */
+    top: 0;
+    z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác */
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo img {
+    height: 50px; /* Kích thước logo */
+    transition: transform 0.3s ease;
+}
+.main-header .logo img:hover {
+    transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
+}
+
+/* Main Navigation */
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul li {
+    margin-left: 40px; /* Khoảng cách giữa các mục menu */
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.main-nav ul li a:hover::after {
+    width: 100%; /* Hiệu ứng gạch chân khi hover */
+}
+
+.main-nav ul li a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-2px); /* Hiệu ứng dịch lên khi hover */
+}
+
+/* Auth Button (Đăng nhập / Đăng ký) */
+.main-nav .btn-auth {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: normal;
+    box-shadow: 0 4px 8px rgba(128, 0, 128, 0.3); /* Bóng cho nút Accent */
+}
+
+.main-nav .btn-auth:hover {
+    background-color: var(--dark-secondary-color); /* Màu đậm hơn khi hover */
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(128, 0, 128, 0.4);
+}
+
+/* Hamburger Menu (Chỉ hiển thị trên mobile) */
+.hamburger-menu {
+    display: none;
+    font-size: 2em;
+    color: var(--text-color);
+    cursor: pointer;
+    margin-right: 0;
+}
+
+/* Overlay cho Mobile Menu */
+.overlay {
+    display: none; /* Mặc định ẩn */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999; /* Nằm dưới menu nhưng trên nội dung */
+}
+
+/* ==========================================================
+// 4. Banner Slider Section
+========================================================== */
+.banner-slider-section {
+    background-color: var(--dark-bg);
+    padding: 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 80vh; /* Chiếm 80% chiều cao viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-container {
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.slider-wrapper {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-content {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    height: 100%;
+}
+
+.slider-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh cover toàn bộ không gian */
+    flex-shrink: 0; /* Ngăn ảnh co lại */
+    display: block;
+}
+
+/* Slider Navigation Arrows */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.8em;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+.slider-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.prev-arrow {
+    left: 25px;
+}
+
+.next-arrow {
+    right: 25px;
+}
+
+/* Navigation Dots */
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-dot {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin: 0 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-dot.active {
+    background-color: var(--secondary-color);
+    transform: scale(1.2);
+    border-color: var(--secondary-color);
+}
+.nav-dot:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+}
+
+/* ==========================================================
+// 5. Quick Search Section
+========================================================== */
+.quick-search-section {
+    background: linear-gradient(to right, var(--secondary-color), var(--dark-secondary-color));
+    padding: 40px 0;
+    box-shadow: var(--shadow-medium);
+    margin-top: -80px; /* Kéo lên đè lên banner */
+    position: relative;
+    z-index: 10;
+    border-radius: 15px;
+    transform: translateY(-50px); /* Dịch lên để tạo hiệu ứng nổi bật */
+}
+
+.quick-search-section .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar-elements {
+    display: flex;
+    align-items: flex-end; /* Căn chỉnh các input group và nút search */
+    gap: 30px;
+    flex-wrap: wrap;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    justify-content: space-between;
+}
+
+.search-input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Cho phép các nhóm input giãn nở */
+    min-width: 180px; /* Chiều rộng tối thiểu cho mỗi nhóm input */
+}
+
+.search-input-group label {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.search-input-group select,
+.search-input-group input {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: var(--light-bg);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.search-input-group select:focus,
+.search-input-group input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(128, 0, 128, 0.2);
+}
+
+.search-button {
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    align-self: flex-end;
+    min-width: 150px;
+}
+
+.search-button:hover {
+    background-color: var(--dark-secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(128, 0, 128, 0.4);
+}
+
+/* ==========================================================
+// 6. Featured Vehicles Section
+========================================================== */
+.featured-vehicles {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--light-bg);
+}
+
+.featured-vehicles h2 {
+    font-size: 2.8em;
+    color: var(--dark-secondary-color);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.featured-vehicles h2 .arrow-icon {
+    font-size: 0.8em;
+    margin-left: 10px;
+    color: var(--primary-color);
+    animation: bounceArrow 1.5s infinite;
+}
+
+@keyframes bounceArrow {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+}
+
+.vehicle-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Responsive grid */
+    gap: 30px;
+}
+
+.vehicle-item {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vehicle-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-medium);
+}
+
+.vehicle-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    display: block;
+    margin: 10px auto 15px auto;
+}
+
+.vehicle-name {
+    font-weight: 700;
+    margin: 10px 0 5px;
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+.vehicle-item .price {
+    color: var(--dark-secondary-color);
+    font-weight: bold;
+    font-size: 1.25em;
+    margin: 0;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-color);
+    width: 80%;
+}
+
+/* ==========================================================
+// 7. Info Highlights Section (Slider cho các điểm nổi bật)
+========================================================== */
+.info-highlights-section {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+    text-align: center;
+}
+
+.highlights-slider-container {
+    position: relative;
+    max-width: 1200px; /* Đảm bảo đủ rộng */
+    margin: 0 auto;
+    overflow: hidden; /* Rất quan trọng để ẩn các slide không nhìn thấy */
+    border-radius: 15px;
+    box-shadow: var(--shadow-medium);
+    background-color: #fff;
+    padding: 20px 0; /* Padding cho container bên trong */
+}
+
+.highlights-slider-wrapper {
+    display: flex; /* Rất quan trọng: cho phép các item nằm ngang */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Chiều rộng của wrapper sẽ được tính bằng JS */
+}
+
+.highlight-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    /* >>> ĐIỀU CHỈNH QUAN TRỌNG ĐỂ HIỂN THỊ 2 ITEM TRÊN MỖI SLIDE CHO DESKTOP <<< */
+    width: calc(100% / 1); /* HIỂN THỊ 2 ITEM TRÊN MỖI SLIDE */
+    flex-shrink: 0; /* Ngăn không cho item co lại */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng width */
+}
+
+.highlight-icon {
+    background-color: var(--light-blue);
+    border-radius: 50%;
+    /* Tăng width và height từ 90px lên, ví dụ 120px */
+    width: 120px; /* Đã thay đổi */
+    height: 120px; /* Đã thay đổi */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-icon img {
+    /* Tăng width và height từ 60px lên, ví dụ 80px */
+    width: 80px; /* Đã thay đổi */
+    height: 80px; /* Đã thay đổi */
+    object-fit: contain;
+}
+
+.highlight-item h3 {
+    font-size: 2em;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.highlight-item p {
+    font-size: 1.05em;
+    color: #555;
+    line-height: 1.7;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Các nút điều hướng (mũi tên) */
+.highlights-slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 2.2em;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.highlights-slider-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.highlights-prev-arrow {
+    left: 20px;
+}
+
+.highlights-next-arrow {
+    right: 20px;
+}
+
+/* Các chấm điều hướng (dots) */
+.highlights-slider-dots {
+    position: absolute;
+    bottom: -40px; /* Đặt dưới slider một chút */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 9;
+}
+
+.highlights-nav-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.highlights-nav-dot.active {
+    background-color: var(--secondary-color);
+    transform: scale(1.2);
+}
+
+.highlights-nav-dot:hover:not(.active) {
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+/* ==========================================================
+// 8. Info Sections (Các khối thông tin chung)
+========================================================== */
+.info-sections {
+    padding: 80px 0;
+    background-color: var(--dark-bg);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.info-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: var(--shadow-light);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.info-card h3 {
+    color: var(--secondary-color);
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.info-card p {
+    color: #555;
+    font-size: 1.05em;
+    line-height: 1.7;
+}
+
+/* ==========================================================
+// 9. User Reviews Section (Phần đánh giá người dùng)
+========================================================== */
+.user-reviews-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--light-bg);
+}
+
+.user-reviews-section h2 {
+    font-size: 2.8em;
+    color: var(--dark-secondary-color);
+    margin-bottom: 50px;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.review-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: var(--shadow-light);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 220px; /* Đảm bảo chiều cao tối thiểu */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.review-card .quote {
+    font-family: 'Times New Roman', serif;
+    font-size: 5em;
+    color: var(--primary-color);
+    line-height: 0.5;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+    margin-left: -10px;
+    font-weight: bold;
+}
+
+.review-card .review-text {
+    background-color: transparent;
+    border-radius: 0;
+    margin-bottom: 15px;
+    padding: 0;
+    height: auto;
+    flex-grow: 1;
+}
+
+.review-card .review-text p {
+    font-style: italic;
+    color: #555;
+    font-size: 1.05em;
+}
+
+.reviewer-name {
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-top: 15px;
+    text-align: right;
+    font-size: 1.1em;
+}
+
+/* ==========================================================
+// 10. Footer (Chân trang)
+========================================================== */
+.main-footer {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 60px 0;
+}
+
+.footer-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.footer-col h3 {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    position: relative;
+    color: var(--primary-color);
+}
+
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 50px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.footer-col ul li a:hover {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.8em;
+    margin-right: 20px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    color: var(--primary-color);
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 25px;
+    font-size: 0.95em;
+    opacity: 0.95;
+    margin-top: 30px;
+}
+
+/* ==========================================================
+// 11. Responsive Design (Điều chỉnh cho các kích thước màn hình)
+========================================================== */
+@media (max-width: 992px) {
+    /* Header */
+    .main-nav ul li {
+        margin-left: 25px;
+    }
+    .main-nav .btn-auth {
+        padding: 8px 18px;
+    }
+
+    /* Quick Search */
+    .quick-search-section .search-bar-elements {
+        gap: 20px;
+        flex-direction: column; /* Xếp dọc các trường tìm kiếm trên tablet */
+        align-items: stretch;
+    }
+    .search-input-group {
+        min-width: unset;
+        width: 100%;
+    }
+    .search-button {
+        width: 100%;
+        min-width: unset;
+    }
+
+    /* Featured Vehicles & Reviews */
+    .featured-vehicles h2,
+    .user-reviews-section h2 {
+        font-size: 2.4em;
+    }
+
+    /* Info Sections */
+    .info-grid {
+        grid-template-columns: 1fr; /* 1 cột trên tablet */
+    }
+    .info-card, .review-card {
+        padding: 30px;
+    }
+
+    /* Highlights Slider (tablet) */
+    .highlights-slider-container {
+        max-width: 100%; /* Cho phép slider chiếm toàn bộ chiều rộng trên màn hình nhỏ hơn */
+        border-radius: 0; /* Bỏ bo tròn trên mobile nếu muốn */
+        padding: 15px 0;
+    }
+    /* >>> ĐIỀU CHỈNH QUAN TRỌNG ĐỂ HIỂN THỊ 1 ITEM TRÊN MỖI SLIDE CHO TABLET <<< */
+    .highlight-item {
+        width: calc(100% / 1); /* 1 item trên tablet */
+        padding: 25px; /* Giảm padding trên tablet */
+    }
+    .highlight-icon {
+        width: 70px;
+        height: 70px;
+    }
+    .highlight-icon img {
+        width: 45px;
+        height: 45px;
+    }
+    .highlight-item h3 {
+        font-size: 1.8em;
+    }
+    .highlight-item p {
+        font-size: 0.95em;
+        max-width: 90%;
+    }
+    .highlights-slider-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 1.8em;
+        left: 10px;
+        right: 10px;
+    }
+    .highlights-slider-dots {
+        bottom: -30px; /* Điều chỉnh vị trí dots trên tablet */
+        gap: 8px;
+    }
+    .highlights-nav-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header */
+    .main-header .logo img {
+        height: 40px;
+    }
+    .hamburger-menu {
+        display: block;
+        order: -1; /* Đẩy hamburger về bên trái */
+        margin-right: 15px;
+    }
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Ẩn ra ngoài màn hình */
+        width: 70%;
+        height: 100%;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        transition: left 0.4s ease-in-out;
+        z-index: 1001;
+    }
+    .main-nav.nav-open {
+        left: 0; /* Khi nav-open, hiện menu */
+    }
+    .main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .main-nav ul li {
+        margin: 15px 0;
+        width: 100%;
+    }
+    .main-nav ul li a {
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .main-nav ul li:last-child a {
+        border-bottom: none;
+    }
+    .main-nav .btn-auth {
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+    }
+    /* Overlay khi menu mở */
+    .main-nav.nav-open + .overlay {
+        display: block;
+    }
+
+    /* Banner Slider */
+    .banner-slider-section {
+        height: 55vh;
+    }
+    .slider-content img {
+        height: 100%; /* Giữ nguyên cover */
+    }
+    .slider-arrow {
+        padding: 10px;
+        font-size: 1.5em;
+        width: 40px;
+        height: 40px;
+    }
+    .prev-arrow { left: 10px; }
+    .next-arrow { right: 10px; }
+    .nav-dot {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+    }
+
+    /* Quick Search */
+    .quick-search-section {
+        padding: 30px 0;
+        margin-top: -60px;
+    }
+    .search-bar-elements {
+        padding: 20px;
+    }
+
+    /* Sections Padding */
+    .featured-vehicles, .info-sections, .user-reviews-section {
+        padding: 60px 0;
+    }
+    .featured-vehicles h2, .user-reviews-section h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    /* User Reviews */
+    .review-card .quote {
+        font-size: 4em;
+    }
+
+    /* Footer */
+    .main-footer {
+        padding: 40px 0;
+    }
+    .footer-cols {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    /* Highlights Slider (mobile) */
+    .highlights-slider-container {
+        padding: 10px 0;
+    }
+    /* >>> ĐIỀU CHỈNH QUAN TRỌNG ĐỂ HIỂN THỊ 1 ITEM TRÊN MỖI SLIDE CHO MOBILE <<< */
+    .highlight-item {
+        width: calc(100% / 1); /* 1 item trên mobile */
+        padding: 20px;
+    }
+    .highlight-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+    .highlight-icon img {
+        width: 40px;
+        height: 40px;
+    }
+    .highlight-item h3 {
+        font-size: 1.6em;
+    }
+    .highlight-item p {
+        font-size: 0.95em;
+        max-width: 95%;
+    }
+    .highlights-slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5em;
+        left: 5px;
+        right: 5px;
+    }
+    .highlights-slider-dots {
+        bottom: -25px;
+        gap: 6px;
+    }
+    .highlights-nav-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Header */
+    .main-header .logo img {
+        height: 35px;
+    }
+    .hamburger-menu {
+        font-size: 1.6em;
+    }
+    .main-nav {
+        width: 80%; /* Chiếm nhiều hơn trên màn hình rất nhỏ */
+    }
+
+    /* Banner Slider */
+    .banner-slider-section {
+        height: 45vh;
+    }
+    .slider-arrow {
+        font-size: 1.2em;
+        padding: 8px;
+        width: 35px;
+        height: 35px;
+        left: 5px;
+        right: 5px;
+    }
+
+    /* Quick Search */
+    .quick-search-section {
+        margin-top: -40px;
+    }
+    .search-bar-elements {
+        padding: 15px;
+    }
+    .search-input-group label {
+        margin-bottom: 5px;
+    }
+    .search-input-group select,
+    .search-input-group input,
+    .search-button {
+        padding: 10px 15px;
+        font-size: 0.95em;
+    }
+
+    /* Sections Padding */
+    .featured-vehicles, .info-sections, .user-reviews-section {
+        padding: 40px 0;
+    }
+    .featured-vehicles h2, .user-reviews-section h2 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+
+    /* Featured Vehicles */
+    .vehicle-item img {
+        width: 100px;
+        height: 100px;
+    }
+    .vehicle-name {
+        font-size: 1.1em;
+    }
+    .vehicle-item .price {
+        font-size: 1.15em;
+    }
+
+    /* Info Highlights Slider (mobile rất nhỏ) */
+    .highlights-slider-container {
+        padding: 10px 0;
+    }
+    /* >>> ĐIỀU CHỈNH QUAN TRỌNG ĐỂ HIỂN THỊ 1 ITEM TRÊN MỖI SLIDE CHO MOBILE RẤT NHỎ <<< */
+    .highlight-item {
+        width: 100%; /* 1 item trên mobile rất nhỏ */
+        padding: 20px;
+    }
+    .highlight-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+    .highlight-icon img {
+        width: 50px;
+        height: 40px;
+    }
+    .highlight-item h3 {
+        font-size: 1.6em;
+    }
+    .highlight-item p {
+        font-size: 0.9em;
+        max-width: 95%;
+    }
+    .highlights-slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5em;
+        left: 5px;
+        right: 5px;
+    }
+    .highlights-slider-dots {
+        bottom: -25px;
+        gap: 6px;
+    }
+    .highlights-nav-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    /* Info Sections */
+    .info-card h3 {
+        font-size: 1.6em;
+    }
+    .info-card p {
+        font-size: 0.95em;
+    }
+
+    /* User Reviews */
+    .review-card .quote {
+        font-size: 3.5em;
+    }
+    .review-card .review-text p {
+        font-size: 0.95em;
+    }
+    .reviewer-name {
+        font-size: 1em;
+    }
+
+    /* Footer */
+    .footer-cols {
+        grid-template-columns: 1fr; /* Mỗi cột 1 hàng trên màn hình rất nhỏ */
+        text-align: center;
+    }
+    .footer-col h3::after {
+        left: 50%;
+        transform: translateX(-50%); /* Căn giữa gạch chân tiêu đề */
+    }
+    .social-icons {
+        margin-top: 20px;
+    }
+}
+
+.highlight-heading {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--secondary-color); /* hoặc chọn màu phù hợp */
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
