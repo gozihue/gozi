@@ -32,13 +32,18 @@
       <div class="container">
         <div class="search-bar-elements">
           <div class="search-input-group">
-            <label for="car-type">Loại xe</label>
-            <select id="car-type">
-              <option value="">Chọn loại xe</option>
-              <option value="motorbike">Xe máy</option>
-              <option value="electric-bike">Xe điện</option>
-              <option value="car">Ô tô</option>
-            </select>
+<label for="car-type">Hãng xe</label>
+<select id="car-type">
+  <option value="">Chọn hãng xe</option>
+  <option value="honda">Honda</option>
+  <option value="yamaha">Yamaha</option>
+  <option value="suzuki">Suzuki</option>
+  <option value="piaggio">Piaggio</option>
+  <option value="sym">SYM</option>
+  <option value="peugeot">Peugeot</option>
+</select>
+
+            
           </div>
             <div class="search-input-group">
             <label for="location">Vị trí</label>
@@ -55,16 +60,20 @@
 
     <section class="search-results-section container">
       <div class="filter-sidebar">
-        <h3>Bộ lọc</h3>
-        <div class="filter-group">
-          <h4>Loại xe</h4>
-          <label><input type="checkbox" name="vehicle_type" value="motorbike"/> Xe máy</label>
-          <label><input type="checkbox" name="vehicle_type" value="electric-bike"/> Xe điện</label>
-          <label><input type="checkbox" name="vehicle_type" value="car"/> Ô tô</label>
-        </div>
+<h3>Bộ lọc</h3>
+<div class="filter-group">
+  <h4>Hãng xe</h4>
+  <label><input type="checkbox" name="brand" value="honda"/> Honda</label>
+  <label><input type="checkbox" name="brand" value="yamaha"/> Yamaha</label>
+  <label><input type="checkbox" name="brand" value="suzuki"/> Suzuki</label>
+  <label><input type="checkbox" name="brand" value="piaggio"/> Piaggio</label>
+  <label><input type="checkbox" name="brand" value="sym"/> SYM</label>
+  <label><input type="checkbox" name="brand" value="peugeot"/> Peugeot</label>
+</div>
+
         <div class="filter-group">
           <h4>Khoảng giá</h4>
-          <input type="range" min="50000" max="1000000" value="100000" class="slider" id="price-range"/>
+          <input type="range" min="50000" max="200000" value="50000" class="slider" id="price-range"/>
           <p><span id="price-value">1.000.000</span>đ/ngày</p>
         </div>
         <div class="filter-group">
@@ -80,7 +89,7 @@
         </div>
         <div class="filter-group">
           <h4>Tiện nghi</h4>
-          <label><input type="checkbox" name="amenity" value="helmet"/> Mũ bảo hiểm</label>
+          <label><input type="checkbox" name="amenity" value="helmet"/> bảo hiểm</label>
           <label><input type="checkbox" name="amenity" value="gps"/> GPS</label>
           <label><input type="checkbox" name="amenity" value="delivery"/> Giao xe tận nơi</label>
         </div>
