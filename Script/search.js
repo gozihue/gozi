@@ -247,8 +247,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".clear-filters-btn")?.addEventListener("click", () => {
         document.getElementById("car-type").value = "";
         priceRange.value = priceRange.min;
+        priceRange.value = 100000;  // về đúng 100k
         priceValue.textContent = new Intl.NumberFormat("vi-VN").format(priceRange.value);
         distanceRange.value = distanceRange.min;
+            distanceRange.value = 10; //  ví dụ mặc định là 10km
         distanceValue.textContent = distanceRange.value;
 
         document.getElementById("location").value = "";
