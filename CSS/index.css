@@ -1159,3 +1159,13 @@ button {
   object-fit: cover;
 }
 
+.texta{
+    font-size: 2.8em;
+    color: var(--dark-secondary-color);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
